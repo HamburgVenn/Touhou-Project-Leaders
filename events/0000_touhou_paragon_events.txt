@@ -41,8 +41,8 @@ country_event = {
 				has_total_skill >= 4
 				#has_base_skill >= 4
 				is_ruler = yes
-				has_leader_flag = renowned_leader
-				has_leader_flag = legendary_leader
+				is_leader_tier = leader_tier_renowned
+				is_leader_tier = leader_tier_legendary
 			}
 			thl_is_regeneration_leader = no
 			thl_is_immortal_akyuu = no
@@ -77,11 +77,11 @@ country_event = {
 				}
 				modifier = {
 					add = 10
-					from = { has_leader_flag = renowned_leader }
+					from = { is_leader_tier = leader_tier_renowned }
 				}
 				modifier = {
 					add = 20
-					from = { has_leader_flag = legendary_leader }
+					from = { is_leader_tier = leader_tier_legendary }
 				}
 
 				# Increase chance for leaders of higher level
