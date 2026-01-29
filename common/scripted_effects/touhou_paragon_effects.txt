@@ -2768,3 +2768,26 @@ thl_update_gestalt_memory_integration = {
 		leader_event = { id = touhou_paragon.80001 days = 5 random = 5 }
 	}
 }
+thl_update_gestalt_memory_integration_event_chain = {
+	if = {
+		limit = {
+			owner = {
+				is_gestalt = yes
+				ruler = {
+					has_trait = leader_trait_thl_volition_integration
+				}
+			}
+		}
+		add_event_chain_counter = {
+			event_chain = touhou_volition_integration_chain
+			counter = touhou_encountered_leaders_counter
+			amount = 1
+		}
+	}
+}
+thl_update_gestalt_memory_integration_trigger = {
+	random_owned_leader = {
+		limit = { has_trait = $TRAIT$ }
+		leader_event = { id = touhou_paragon.80110 days = $DAY$ }
+	}
+}

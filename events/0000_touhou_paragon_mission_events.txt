@@ -2144,6 +2144,10 @@ country_event = {
 	after = {
 		hidden_effect = {
 			end_event_chain = "touhou_sanae_mission_chain"
+			random_owned_leader = {
+				limit = { has_trait = thl_leader_trait_miracle }
+				thl_update_gestalt_memory_integration = yes
+			}
 		}
 	}
 }

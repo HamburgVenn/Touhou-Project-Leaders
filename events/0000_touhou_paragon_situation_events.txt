@@ -207,6 +207,15 @@ situation_event = {
     show_sound = event_mystic_reveal_light
     situation = this
     location = target
+
+    immediate = {
+        target = {
+            random_owned_leader = {
+                limit = { has_trait = thl_leader_trait_nuclear }
+                thl_update_gestalt_memory_integration = yes
+            }
+        }
+    }
     option = {
         name = touhou_paragon_situation.42667.a
         owner = {

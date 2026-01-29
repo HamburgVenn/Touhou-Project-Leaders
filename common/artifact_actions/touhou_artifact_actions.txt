@@ -185,5 +185,8 @@ artifact_random_secrct_research = {
 				}
 			}
 		}
+		hidden_effect = {
+			country_event = { id = touhou_paragon.80048 days = 15 }
+		}
 	}
 }

@@ -598,6 +598,9 @@ country_event = {
 					has_country_flag = dismissed_mystia
 				}
 				OR = {
+					ruler = {
+						has_trait = leader_trait_thl_volition_integration
+					}
 					num_assigned_jobs = {
 						job = entertainer
 						value >= 1
@@ -609,6 +612,7 @@ country_event = {
 				}
 				any_owned_planet = {
 					OR = {
+						free_amenities >= 7000
 						num_assigned_jobs = {
 							job = entertainer
 							value >= 1
@@ -624,6 +628,7 @@ country_event = {
 			random_owned_planet = {
 				limit = {
 					OR = {
+						free_amenities >= 7000
 						num_assigned_jobs = {
 							job = entertainer
 							value >= 1
@@ -1748,6 +1753,7 @@ leader_event = {
 		custom_tooltip = touhou_paragon.40720.a.tooltip
 		remove_trait = thl_leader_trait_magician
 		add_trait = { trait = thl_leader_trait_great_magician }
+		thl_update_gestalt_memory_integration = yes
 		owner = {
 			set_country_flag = immortal_marisa
 		}
@@ -5013,6 +5019,10 @@ country_event = {
 		}
 		hidden_effect = {
 			remove_point_of_interest = reisen_data
+			random_owned_leader = {
+				limit = { has_trait = thl_leader_trait_rabbit_leader }
+				thl_update_gestalt_memory_integration = yes
+			}
 		}
 		response_text = touhou_paragon.43221.reisen.responce
 	}
@@ -6461,6 +6471,7 @@ country_event = {
 		}
 		ruler = {
 			add_trait = leader_trait_thl_volition_integration
+			save_global_event_target_as = thl_has_leader_trait_thl_volition_integration
 		}
 	}
 	option = {
@@ -6490,6 +6501,13 @@ leader_event = {
 	}
 	option = {
 		name = touhou_paragon.80001.a
+		owner = {
+			add_event_chain_counter = {
+				event_chain = touhou_volition_integration_chain
+				counter = touhou_integrated_leaders_counter
+				amount = 1
+			}
+		}
 		if = {
 			limit = {
 				root = {
@@ -6503,5 +6521,847 @@ leader_event = {
 			}
 			custom_tooltip = thl_tooltip_gestalt_integrate_akyuu
 		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_words
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_kosuzu
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_kosuzu
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_fly
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_reimu
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_reimu
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_magic
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_marisa
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_marisa
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_kongfu
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_meiling
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_meiling
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_elements
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_patchouli
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_patchouli
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_time
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_sakuya
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_sakuya
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_destiny_manipulation
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_remilia
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_remilia
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_dolls
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_alice
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_alice
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_kendo
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_youmu
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_youmu
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_death
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_yuyuko
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_yuyuko
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_density
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_suika
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_suika
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_luck
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_tewi
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_tewi
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_wave_length
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_reisen
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_reisen
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_wind
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_aya
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_aya
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_flower
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_yuka_official
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_yuka_official
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_flower_commander
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_yuka_commander
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_yuka_commander
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_song
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_mystia
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_mystia
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_distance
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_onoduka
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_onoduka
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_trial
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_shikieiki
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_shikieiki
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_fall
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_sizuha
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_sizuha
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_harvest
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_minoriko
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_minoriko
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_jinx
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_hina
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_hina
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_water
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_nitori
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_nitori
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_miracle
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_sanae
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_sanae
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_heaven
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_kanako
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_kanako
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_earth
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_suwako
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_suwako
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_earthquake
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_tenshi
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_tenshi
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_mind_reader
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_satori
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_satori
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_corpse_travel
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_rin
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_rin
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_nuclear
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_utsuho
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_utsuho
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_subconscious
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_koishi
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_koishi
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_border_merry
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_merry
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_merry
+		}
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_star_located
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_renko
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_renko
+		}
+	}
+}
+#检测格式塔中枢是否有意志整合特质，以防出现被堕落击杀或者其他什么东西导致的死亡失去意志整合特质及其flag（月检）
+country_event = {
+	id = touhou_paragon.80040
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_event_chain = touhou_volition_integration_chain
+		ruler = {
+			NOT = { has_trait = leader_trait_thl_volition_integration }
+		}
+	}
+
+	immediate = {
+		kill_leader = {
+			ruler = yes
+		}
+		clone_leader = {
+			target = event_target:thl_has_leader_trait_thl_volition_integration
+			skill = 1
+			set_age = 1
+		}
+	}
+}
+#触发小铃意志整合事件
+country_event = {
+	id = touhou_paragon.80048
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = thl_have_found_all_pioneer }
+		has_country_flag = irassian_research_started
+		has_country_flag = yuht_research_started
+		has_country_flag = vultaum_research_started
+		has_country_flag = cybrex_research_started
+		has_country_flag = league_research_started
+		has_country_flag = baol_research_started
+		has_country_flag = zroni_research_started
+	}
+
+	immediate = {
+		set_country_flag = thl_have_found_all_pioneer
+		random_owned_leader = {
+			limit = { has_trait = thl_leader_trait_words }
+			thl_update_gestalt_memory_integration = yes
+		}
+	}
+}
+leader_event = {
+	id = touhou_paragon.80050
+	title = touhou_paragon.80001.name
+	desc = {
+		trigger = { is_machine_empire = yes }
+		text = touhou_paragon.80050.desc_1
+	}
+	desc = {
+		trigger = { is_hive_empire = yes }
+		text = touhou_paragon.80050.desc_2
+	}
+	is_triggered_only = yes
+	picture = GFX_evt_shroud_psionic_hive_mind
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+	picture_event_data = {
+		portrait = root
+	}
+	option = {
+		name = touhou_paragon.80050.option_1
+		if = {
+			limit = {
+				root = {
+					has_trait = thl_leader_trait_ice
+				}
+			}
+			owner = {
+				ruler = {
+					set_leader_flag = thl_flag_gestalt_integrate_cirno
+				}
+			}
+			custom_tooltip = thl_tooltip_gestalt_integrate_cirno
+		}
+		hidden_effect = {
+			set_variable = {
+				which = thl_gestalt_influenced_by_crino
+				value = 0
+			}
+		}
+	}
+	option = {
+		name = touhou_paragon.80050.option_2
+	}
+}
+country_event = {
+	id = touhou_paragon.80100
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		change_variable = {
+			which = thl_gestalt_influenced_by_crino
+			value = 1
+		}
+		country_event = {
+			id = touhou_paragon.80102
+			days = 1
+		}
+	}
+}
+#意志整合检测琪露诺等级
+country_event = {
+	id = touhou_paragon.80101
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			has_trait = thl_leader_trait_ice
+			has_base_skill = 9
+		}
+	}
+
+	immediate = {
+		from = {
+			leader_event = {
+				id = touhou_paragon.80050
+			}
+		}
+	}
+}
+country_event = {
+	id = touhou_paragon.80102
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		check_variable = {
+			which = thl_gestalt_influenced_by_crino
+			value = 9
+		}
+	}
+
+	immediate = {
+		change_variable = {
+			which = thl_gestalt_influenced_by_crino
+			value = -9
+		}
+		random_list = {
+			9 = {
+				country_event = {
+					id = touhou_paragon.80103
+					days = 1
+					random = 10
+				}
+			}
+			91 = {}
+		}
+	}
+}
+country_event = {
+	id = touhou_paragon.80103
+	title = touhou_paragon.80102.name
+	desc = {
+		trigger = { NOT = { has_country_flag = thl_gestalt_influenced_by_crino_flag } }
+		text = touhou_paragon.80102.desc_1
+	}
+	desc = {
+		trigger = { has_country_flag = thl_gestalt_influenced_by_crino_flag }
+		text = touhou_paragon.80102.desc_2
+	}
+	is_triggered_only = yes
+	picture = GFX_evt_cirno_daiyousei
+
+	trigger = {
+		ruler = {
+			has_leader_flag = thl_flag_gestalt_integrate_cirno
+		}
+	}
+
+	option = {
+		name = touhou_paragon.80102.option_1
+		custom_tooltip = touhou_paragon.80102.option_cust
+		trigger = {
+			NOT = { has_country_flag = thl_gestalt_influenced_by_crino_flag }
+		}
+		add_monthly_resource_mult = {
+			resource = physics_research
+			value = 9
+		}
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = 9
+		}
+		add_monthly_resource_mult = {
+			resource = engineering_research
+			value = 9
+		}
+		set_country_flag = thl_gestalt_influenced_by_crino_flag
+	}
+	option = {
+		name = touhou_paragon.80102.option_2
+		custom_tooltip = touhou_paragon.80102.option_cust
+		add_monthly_resource_mult = {
+			resource = physics_research
+			value = 9
+		}
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = 9
+		}
+		add_monthly_resource_mult = {
+			resource = engineering_research
+			value = 9
+		}
+	}
+}
+#意志整合检测美玲
+country_event = {
+	id = touhou_paragon.80104
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = thl_have_completed_gestalt_integrate_meiling }
+		fromfrom = {
+			leader = {
+				has_trait = thl_leader_trait_kongfu
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			set_country_flag = thl_have_completed_gestalt_integrate_meiling
+		}
+		fromfrom = {
+			leader = {
+				thl_update_gestalt_memory_integration = yes
+			}
+		}
+	}
+}
+#意志整合检测帕秋莉等级
+country_event = {
+	id = touhou_paragon.80105
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = thl_have_completed_gestalt_integrate_patchouli }
+		from = {
+			has_trait = thl_leader_trait_elements
+		}
+	}
+
+	immediate = {
+		set_country_flag = thl_have_completed_gestalt_integrate_patchouli
+		from = {
+			thl_update_gestalt_memory_integration = yes
+		}
+	}
+}
+country_event = {
+	id = touhou_paragon.80111
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		country_event = { id = touhou_paragon.80106 days = 5 }
+		country_event = { id = touhou_paragon.80107 days = 5 }
+		country_event = { id = touhou_paragon.80108 days = 5 }
+	}
+}
+#意志整合检测蕾米莉亚
+country_event = {
+	id = touhou_paragon.80106
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = thl_have_hired_scarlet_devil_mansion }
+		any_owned_leader = {
+			has_trait = thl_leader_trait_destiny_manipulation
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_time
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_elements
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_kongfu
+		}
+		any_owned_leader = {
+			has_leader_flag = koakuma_leader
+		}
+	}
+
+	immediate = {
+		set_country_flag = thl_have_hired_scarlet_devil_mansion
+		random_owned_leader = {
+			limit = {
+				has_trait = thl_leader_trait_destiny_manipulation
+			}
+			thl_update_gestalt_memory_integration = yes
+		}
+	}
+}
+#意志整合检测神奈子
+country_event = {
+	id = touhou_paragon.80107
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = thl_have_hired_moriya_shrine }
+		any_owned_leader = {
+			has_trait = thl_leader_trait_miracle
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_heaven
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_earth
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_water
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_fall
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_harvest
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_jinx
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_wind
+		}
+	}
+
+	immediate = {
+		set_country_flag = thl_have_hired_moriya_shrine
+		random_owned_leader = {
+			limit = {
+				has_trait = thl_leader_trait_heaven
+			}
+			thl_update_gestalt_memory_integration = yes
+		}
+	}
+}
+#意志整合检测古明地觉
+country_event = {
+	id = touhou_paragon.80108
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = thl_have_hired_palace_of_the_earth_spirits }
+		any_owned_leader = {
+			has_trait = thl_leader_trait_corpse_travel
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_nuclear
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_subconscious
+		}
+		any_owned_leader = {
+			has_trait = thl_leader_trait_mind_reader
+		}
+	}
+
+	immediate = {
+		set_country_flag = thl_have_hired_palace_of_the_earth_spirits
+		random_owned_leader = {
+			limit = {
+				has_trait = thl_leader_trait_mind_reader
+			}
+			thl_update_gestalt_memory_integration = yes
+		}
+	}
+}
+#意志整合检测灵梦
+leader_event = {
+	id = touhou_paragon.80109
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			NOT = { has_country_flag = thl_have_completed_gestalt_integrate_reimu }
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = thl_have_completed_gestalt_integrate_reimu
+		}
+		thl_update_gestalt_memory_integration = yes
+	}
+}
+#意志整合触发控制
+leader_event = {
+	id = touhou_paragon.80110
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		thl_update_gestalt_memory_integration = yes
 	}
 }

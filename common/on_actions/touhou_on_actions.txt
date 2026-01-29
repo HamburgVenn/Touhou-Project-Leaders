@@ -68,6 +68,8 @@ on_monthly_pulse_country = {
 		touhou_war_in_heaven.14
 		touhou_war_in_heaven.16
 		touhou_paragon.40736
+		touhou_paragon.80100
+		touhou_paragon.80040
 	}
 }
 
@@ -220,6 +222,7 @@ on_planet_defenders_win = {
 	events = {
 		touhou_paragon_effect.905
 		touhou_paragon_effect.40709
+		touhou_paragon.80104
 	}
 }
 
@@ -266,6 +269,7 @@ on_yearly_pulse_country = {
 		touhou_paragon_effect.70#秋姐妹
 		touhou_paragon_spell.350#厄运泄露
 		touhou_paragon_situation.40300#早苗星之仪式
+		touhou_paragon.80111 #意志整合检测
 	}
 }
 
@@ -425,6 +429,8 @@ on_leader_level_up = {
 	events = {
 		touhou_paragon.40721
 		touhou_paragon.40724# Update Gestalt node portraits.
+		touhou_paragon.80101 #意志整合检测琪露诺等级
+		touhou_paragon.80105 #意志整合检测帕秋莉等级
 	}
 }
 
@@ -481,3 +487,5 @@ o# Fired when a country delves, no matter the result
 # 		touhou_paragon_mission.40309
 # 	}
 # }
+
+
