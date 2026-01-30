@@ -9396,6 +9396,10 @@ country_event = {
             }
             save_event_target_as = rich_mineral_garden_planet
         }
+        random_owned_leader = {
+            limit = { has_trait = thl_leader_trait_earthquake }
+            thl_update_gestalt_memory_integration = yes
+        }
     }
 
     option = {
@@ -10162,6 +10166,12 @@ country_event = {
     }
     after = {
         set_country_flag = marisa_alice_regeneration_complete
+        hidden_effect = {
+            random_owned_leader = {
+                limit = { has_trait = thl_leader_trait_dolls }
+                thl_update_gestalt_memory_integration = yes
+            }
+        }
     }
 }
 

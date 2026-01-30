@@ -2816,6 +2816,7 @@ country_event = {
                     max = 5
                 }
                 round_variable = touhou_variable_reimu_excessive_amount
+                leader_event = { id = touhou_paragon.80109 days = 5 }
             }
         }
         add_modifier = {

@@ -2732,12 +2732,263 @@ leader_trait_thl_volition_integration = {
 	}
 	triggered_councilor_modifier = {
 		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_reimu
+		}
+		ship_weapon_damage = 0.03
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_marisa
+		}
+		ship_fire_rate_mult = 0.03
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_cirno
+		}
+		country_physics_research_produces_mult = -0.09
+		country_society_research_produces_mult = -0.09
+		country_engineering_research_produces_mult = -0.09
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_meiling
+		}
+		shipclass_military_station_hull_mult = 0.15
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_patchouli
+		}
+		physics_tech_cost_mult = -0.01
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_sakuya
+		}
+		planet_building_build_speed_mult = 0.08
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_remilia
+		}
+		country_subject_acceptance_add = 10
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_alice
+		}
+		doll_workforce_mult = 0.03
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_youmu
+		}
+		ship_speed_mult = 0.05
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_yuyuko
+		}
+		spirit_workforce_mult = 0.05
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_suika
+		}
+		army_damage_mult = 0.06
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_tewi
+		}
+		rabbit_workforce_mult = 0.03
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_reisen
+		}
+		ship_shield_penetration_add = 0.02
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_aya
+		}
+		spy_network_daily_value_mult = 0.05
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_yuka_official
+		}
+		pop_environment_tolerance = 0.03
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_yuka_commander
+		}
+		ship_damage_reduction_add = 0.01
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_mystia
+		}
+		planet_amenities_no_happiness_add = 200
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_onoduka
+		}
+		ship_weapon_range_mult = 0.05
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_shikieiki
+		}
+		planet_stability_add = 0.02
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_sizuha
+		}
+		planet_pops_upkeep_mult = -0.01
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_minoriko
+		}
+		country_food_produces_mult = 0.03
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_hina
+		}
+		pop_happiness = 0.02
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_nitori
+		}
+		engineering_tech_cost_mult = -0.01
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_sanae
+		}
+		planetary_ascension_effect_mult = 0.05
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_kanako
+		}
+		command_limit_add = 15
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_suwako
+		}
+		damage_vs_country_type_synth_queen_mult = 0.03
+		damage_vs_country_type_awakened_synth_queen_mult = 0.03
+		damage_vs_country_type_synth_queen_convoys_mult = 0.03
+		damage_vs_country_type_synth_queen_outposts_mult = 0.03
+		damage_vs_country_type_swarm_mult = 0.03
+		damage_vs_country_type_extradimensional_mult = 0.03
+		damage_vs_country_type_extradimensional_2_mult = 0.03
+		damage_vs_country_type_extradimensional_3_mult = 0.03
+		damage_vs_country_type_ai_empire_mult = 0.03
+		damage_vs_country_type_gray_goo_mult = 0.03
+		damage_vs_player_crisis_mult = 0.05
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_tenshi
+		}
+		terraform_speed_mult = 0.05
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_satori
+		}
+		empire_size_pops_mult = -0.01
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_rin
+		}
+		country_resettlement_cost_mult = -0.08
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_utsuho
+		}
+		weapon_role_artillery_weapon_damage_mult = 0.03
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_koishi
+		}
+		ship_cloaking_strength_add = 0.3
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
 			has_leader_flag = thl_flag_gestalt_integrate_akyuu
 		}
 		society_tech_cost_mult = -0.01
 		mult = trigger:has_total_skill
 	}
-	custom_tooltip = leader_trait_thl_volition_integration_effect
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_kosuzu
+		}
+		ship_archaeological_site_clues_add = 0.3
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_merry
+		}
+		ship_ftl_jumpdrive_range_mult = 0.025
+		mult = trigger:has_total_skill
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			has_leader_flag = thl_flag_gestalt_integrate_renko
+		}
+		catapult_spread_mult = 0.025
+		astral_rift_difficulty_add = -0.03
+		country_astral_rift_speed_mult = 0.05
+		mult = trigger:has_total_skill
+	}
+	custom_tooltip_with_modifiers = leader_trait_thl_volition_integration_effect
 	leader_class = { scientist official commander }
 	hide_age = yes
 	initial = no
