@@ -1,154 +1,99 @@
 raiding = {
-	trigger = {
-		OR = {
-			owner = { has_ascension_perk = ap_nihilistic_acquisition }
-			owner = { has_valid_civic = civic_barbaric_despoilers }
-			owner = { has_origin = origin_slavers }
-			owner = { has_origin = origin_khan_successor }
-			owner = { is_country_type = debt_collectors }
-			AND = {
-				owner = { is_country_type = enclave_mercenary }
-				controller = {
-					OR = {
-						has_ascension_perk = ap_nihilistic_acquisition
-						has_valid_civic = civic_barbaric_despoilers
-						has_origin = origin_slavers
-						has_origin = origin_khan_successor
-						any_owned_leader = {
-							is_councilor = yes
-							has_trait = thl_leader_trait_master_sacker
-						}
-					}
-				}
-			}
-			AND = {
-				exists = leader
-				leader = {
-					has_trait = thl_leader_trait_master_sacker
-				}
-			}
-			AND = {
-				exists = leader
-				leader = {
-					has_trait = thl_leader_trait_oni_power
-				}
-			}
-			owner = {
-				any_owned_leader = {
-					is_councilor = yes
-					has_trait = thl_leader_trait_master_sacker
-				}
-			}
-		}
-	}
+    trigger = {
+        OR = {
+            owner = { has_ascension_perk = ap_nihilistic_acquisition }
+            owner = { has_valid_civic = civic_barbaric_despoilers }
+            owner = { has_origin = origin_slavers }
+            owner = { has_origin = origin_khan_successor }
+            owner = { is_country_type = debt_collectors }
+            AND = {
+                owner = { is_mercenary = yes }
+                controller = {
+                    OR = {
+                        has_ascension_perk = ap_nihilistic_acquisition
+                        has_valid_civic = civic_barbaric_despoilers
+                        has_origin = origin_slavers
+                        has_origin = origin_khan_successor
+                        any_owned_leader = {
+                            is_councilor = yes
+                            has_trait = thl_leader_trait_master_sacker
+                        }
+                    }
+                }
+            }
+            AND = {
+                exists = leader
+                leader = {
+                    has_trait = thl_leader_trait_master_sacker
+                }
+            }
+            AND = {
+                exists = leader
+                leader = {
+                    has_trait = thl_leader_trait_oni_power
+                }
+            }
+            owner = {
+                any_owned_leader = {
+                    is_councilor = yes
+                    has_trait = thl_leader_trait_master_sacker
+                }
+            }
+        }
+        NOT = {
+            any_owned_ship = {
+                has_ship_flag = behemoth_hatchling_ship
+            }
+        }
+    }
 
-	default = no
+    default = no
 
-	stop_when_armies_dead = no
-	abduct_pops = yes
+    stop_when_armies_dead = no
+    stop_when_ground_combat = no
+    abduct_pops = yes
 
-	planet_damage = 1.0
-	army_damage = 0.5
+    planet_damage = 0.5
+    army_damage = 0.5
 
-	kill_pop_chance = {
-		base = 1.0
-	}
-	min_pops_to_kill_pop = 2
+    kill_pop_chance = {
+        base = 0.15
+    }
+    min_pops_to_kill_pop = 200
+    kill_pop_amount = { min = 0 max = 200 }
 
-	# root = fleet
-	# from = planet
-	ai_weight = {
-		weight = 8
-		modifier = {
-			factor = 0
-			exists = from
-			from = {
-				OR = {
-					pop_amount < 200
-					owner = { NOT = { is_hostile = root.owner } }
-				}
-			}
-			NOT = {
-				owner = { has_origin = origin_slavers }
-			}
-		}
-		modifier = {
-			factor = 0.01
-			exists = from
-			from = {
-				owner = { has_claim = root.solar_system }
-			}
-			NOT = {
-				owner = { has_origin = origin_slavers }
-			}
-		}
-		modifier = {
-			factor = 100
-			owner = { has_origin = origin_slavers }
-		}
-	}
-}
-
-armageddon = {
-	trigger = {
-		OR = {
-			owner = {
-				OR = {
-					has_policy_flag = orbital_bombardment_armageddon
-					is_crisis_faction = yes
-					has_menace_perk = menp_death_from_above		# Menace Perk: Death From Above
-				}
-			}
-			AND = {
-				owner = { is_country_type = enclave_mercenary }
-				controller = {
-					OR = {
-						has_policy_flag = orbital_bombardment_armageddon
-						is_crisis_faction = yes
-						has_menace_perk = menp_death_from_above		# Menace Perk: Death From Above
-					}
-				}
-			}
-			owner = { is_country_type = koishi_berserk_fleet }
-		}
-	}
-
-	default = no
-
-	stop_when_armies_dead = no
-	abduct_pops = no
-
-	planet_damage = 1.5
-	army_damage = 2.0
-
-	kill_pop_chance = {
-		base = 1.0
-	}
-	min_pops_to_kill_pop = 0
-
-	# root = fleet
-	# from = planet
-	ai_weight = {
-		weight = 10
-		modifier = {
-			factor = 0.01
-			exists = from
-			from = {
-				owner = { NOT = { is_hostile = root.owner } }
-				NAND = {
-					controller = { is_crisis_faction = yes }
-					planet_garrison_strength > 0
-				}
-			}
-			exists = owner
-			owner = {
-				AND = {
-					is_crisis_faction = no
-					NOT = { is_country_type = koishi_berserk_fleet }
-				}
-			}
-		}
-	}
+    # root = fleet
+    # from = planet
+    ai_weight = {
+        weight = 8
+        modifier = {
+            factor = 0
+            exists = from
+            from = {
+                OR = {
+                    pop_amount < 200
+                    owner = { NOT = { is_hostile = root.owner } }
+                }
+            }
+            NOT = {
+                owner = { has_origin = origin_slavers }
+            }
+        }
+        modifier = {
+            factor = 0.01
+            exists = from
+            from = {
+                owner = { has_claim = root.solar_system }
+            }
+            NOT = {
+                owner = { has_origin = origin_slavers }
+            }
+        }
+        modifier = {
+            factor = 100
+            owner = { has_origin = origin_slavers }
+        }
+    }
 }
 
 yume_no_huuin = {
