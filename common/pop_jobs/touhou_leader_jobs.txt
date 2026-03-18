@@ -85,7 +85,7 @@ healthcare = {
                     healthcare_is_genomic_researcher_trigger = yes
                 }
             }
-            society_research = 6
+            society_research = 1.75
         }
         produces = {
             trigger = {
@@ -98,7 +98,7 @@ healthcare = {
                     has_completed_genetic_situation = yes
                 }
             }
-            society_research = 3
+            society_research = 1.75
         }
         upkeep = {
             trigger = {
@@ -1021,12 +1021,12 @@ touhou_bookseller = {
     resources = {
         category = planet_biologists
         produces = {
-            physics_research = 1
+            physics_research = 0.5
             astral_threads = 0.1
             multiplier = owner.trigger:astral_rifts_completed
         }
         produces = {
-            society_research = 1
+            society_research = 0.5
             minor_artifacts = 0.1
             multiplier = owner.bookstore_size
         }
@@ -1051,9 +1051,9 @@ touhou_bookseller = {
                     has_planet_flag = has_science_ministry
                 }
             }
-            physics_research = 2
-            engineering_research = 2
-            society_research = 3
+            physics_research = 1
+            engineering_research = 1
+            society_research = 1.5
         }
     }
     
@@ -1125,12 +1125,12 @@ touhou_bookseller_drone = {
     resources = {
         category = planet_biologists
         produces = {
-            physics_research = 1
+            physics_research = 0.5
             astral_threads = 0.1
             multiplier = owner.trigger:astral_rifts_completed
         }
         produces = {
-            society_research = 1
+            society_research = 0.5
             minor_artifacts = 0.1
             multiplier = owner.bookstore_size
         }
@@ -1155,9 +1155,9 @@ touhou_bookseller_drone = {
                     has_planet_flag = has_science_ministry
                 }
             }
-            physics_research = 2
-            engineering_research = 2
-            society_research = 3
+            physics_research = 1
+            engineering_research = 1
+            society_research = 1.5
         }
     }
     triggered_planet_modifier = {
@@ -2076,11 +2076,20 @@ thl_miko = {
     resources = {
         category = planet_bureaucrats
         produces = {
-            unity = 4
+            unity = 3
         }
         produces = {
             trigger = {
                 has_trait = trait_latent_psionic
+            }
+            unity = 0.5
+            physics_research = 0.5
+            society_research = 0.5
+            engineering_research = 0.5
+        }
+        produces = {
+            trigger = {
+                has_trait = trait_psionic
             }
             unity = 1
             physics_research = 1
@@ -2089,20 +2098,11 @@ thl_miko = {
         }
         produces = {
             trigger = {
-                has_trait = trait_psionic
-            }
-            unity = 2
-            physics_research = 2
-            society_research = 2
-            engineering_research = 2
-        }
-        produces = {
-            trigger = {
                 moriya_faith_trigger = yes
             }
-            physics_research = 2
-            society_research = 2
-            engineering_research = 2
+            physics_research = 1
+            society_research = 1
+            engineering_research = 1
         }
         produces = {
             trigger = {
@@ -2537,11 +2537,21 @@ thl_miko_drone = {
     resources = {
         category = planet_bureaucrats
         produces = {
-            unity = 4
+            unity = 3
         }
+
         produces = {
             trigger = {
                 has_trait = trait_latent_psionic
+            }
+            unity = 0.5
+            physics_research = 0.5
+            society_research = 0.5
+            engineering_research = 0.5
+        }
+        produces = {
+            trigger = {
+                has_trait = trait_psionic
             }
             unity = 1
             physics_research = 1
@@ -2550,20 +2560,11 @@ thl_miko_drone = {
         }
         produces = {
             trigger = {
-                has_trait = trait_psionic
-            }
-            unity = 2
-            physics_research = 2
-            society_research = 2
-            engineering_research = 2
-        }
-        produces = {
-            trigger = {
                 moriya_faith_trigger = yes
             }
-            physics_research = 2
-            society_research = 2
-            engineering_research = 2
+            physics_research = 1
+            society_research = 1
+            engineering_research = 1
         }
         produces = {
             trigger = {
