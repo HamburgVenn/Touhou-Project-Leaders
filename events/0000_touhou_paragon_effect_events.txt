@@ -3130,6 +3130,45 @@ country_event = {
     }
 }
 
+# Fired by on_colony_monthly_pulse
+planet_event = { #Braiiiins
+    id = touhou_paragon_effect.250
+    is_triggered_only = yes
+    hide_window = yes
+
+    trigger = {
+        check_modifier_value = {
+            modifier = fake_pop_growth_mod
+            value > 0
+        }
+        any_owned_species = {
+            is_organic_species = yes
+            NOT = { has_trait = trait_zombie }
+        }
+        owner = {
+            any_owned_leader = {
+                has_trait = thl_leader_trait_corpse_travel
+            }
+        }
+        has_building = building_corpses_disposal_center
+    }
+
+    immediate = {
+        set_variable = {
+            which = zombie_pop_amount
+            value = 0
+        }
+        export_modifier_to_variable = {
+            modifier = fake_pop_growth_mod
+            variable = zombie_pop_amount
+        }
+        create_zombie_pop_group = {
+            SIZE = zombie_pop_amount
+        }
+        clear_variable = zombie_pop_amount
+    }
+}
+
 country_event = {
     id = touhou_paragon_effect.200
     hide_window = yes

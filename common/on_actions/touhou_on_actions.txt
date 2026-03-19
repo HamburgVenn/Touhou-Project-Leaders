@@ -151,6 +151,7 @@ on_entering_battle = {
 		touhou_paragon_effect.1202
 		touhou_paragon_effect.1051
 		touhou_paragon_effect.1205
+        VOP_evt_ModifierUpdated.1
 	}
 }
 
@@ -256,10 +257,11 @@ on_leader_death = {
 # 	}
 # }
 
-on_colony_yearly_pulse = {
-	events = {
-		touhou_paragon_effect.35
-	}
+on_colony_monthly_pulse = {
+    events = {
+        necroids.250
+        touhou_paragon_effect.35# makes zombie pops
+    }
 }
 
 on_yearly_pulse_country = {
