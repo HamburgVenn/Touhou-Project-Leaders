@@ -2861,7 +2861,7 @@ leader_trait_thl_volition_integration = {
 		potential = {
 			has_leader_flag = thl_flag_gestalt_integrate_shikieiki
 		}
-		planet_stability_add = 0.02
+		planet_stability_add = 1
 		mult = trigger:has_total_skill
 	}
 	triggered_councilor_modifier = {
