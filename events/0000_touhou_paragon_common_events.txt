@@ -30,6 +30,7 @@ country_event = {
 				add_trait = { trait = thl_leader_trait_destined }
 			}
 			set_global_flag = reimu
+            set_country_flag = hired_reimu
 			set_country_flag = can_build_shirne
 			set_country_flag = hakurei_shrine_country
 		}
@@ -46,6 +47,7 @@ country_event = {
 				message = no
 			}
 			set_global_flag = sanae
+            set_country_flag = hired_sanae
 			set_country_flag = can_build_shirne
 		}
 		if = {
@@ -78,6 +80,7 @@ country_event = {
 				}
 			}
 			set_global_flag = marisa
+            set_country_flag = hired_marisa
 		}
 		if = {
 			limit = {
@@ -94,6 +97,7 @@ country_event = {
 				assign_leader = last_created_leader
 			}
 			set_global_flag = sakuya
+            set_country_flag = hired_sakuya
 		}
 		if = {
 			limit = {
@@ -138,6 +142,7 @@ country_event = {
 				}
 			}
 			set_global_flag = youmu
+            set_country_flag = hired_youmu
 		}
 		if = {
 			limit = {
@@ -174,6 +179,7 @@ country_event = {
 				}
 			}
 			set_global_flag = reisen
+            set_country_flag = hired_reisen
 		}
 		if = {
 			limit = {
@@ -266,7 +272,9 @@ country_event = {
 				days = 3600
 			}
 			set_global_flag = merry
+            set_country_flag = hired_merry
 			set_global_flag = renko
+            set_country_flag = hired_renko
 		}
 		if = {
 			limit = {
@@ -349,7 +357,7 @@ country_event = {
 					is_planet_class = pc_frozen
 				}
 				add_anomaly = {
-					category = touhou_crino_temple
+					category = touhou_cirno_temple
 					target = root
 				}
 			}
@@ -639,7 +647,7 @@ country_event = {
 						}
 					}
 				}
-				planet_event = {
+				carrier_event = {
 					id = touhou_paragon.43110
 				}
 			}
@@ -669,7 +677,7 @@ country_event = {
 						has_building = building_corporate_forum
 					}
 				}
-				planet_event = {
+				carrier_event = {
 					id = touhou_paragon.43210
 				}
 			}
@@ -678,7 +686,10 @@ country_event = {
 		if = {
 			limit = {
 				is_ai = no
-				has_megastructure = grand_archive_0
+				OR = {
+					has_megastructure = grand_archive_0
+					has_country_flag = has_arkship_grand_archive_module
+				}
 				NOT = {
 					has_global_flag = marisa
 				}
@@ -731,7 +742,7 @@ country_event = {
 						}
 					}
 				}
-				planet_event = {
+				carrier_event = {
 					id = touhou_paragon.42001
 				}
 			}
@@ -1281,7 +1292,9 @@ leader_event = {
 			last_added_deposit = {
 				set_deposit_flag = keep_deposit_on_terraform
 			}
-			set_country_flag = hakurei_shrine_imperial_country
+			owner = {
+                set_country_flag = hakurei_shrine_imperial_country
+            }
 		}
 		owner = {
 			add_resource = {
@@ -1348,7 +1361,9 @@ leader_event = {
 				}
 			}
 			add_trait = { trait = leader_trait_composer_chosen }
-			add_attunement = { the_composer_of_strands = 100 }
+            owner = {
+                add_attunement = { the_composer_of_strands = 100 }
+            }
 		}
 		if = {
 			limit = {
@@ -1631,6 +1646,102 @@ country_event = {
 	}
 }
 
+# 博丽神社例大祭/星球级tho解锁检查（年度）
+country_event = {
+	id = touhou_paragon.40650
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		NOT = {
+			has_country_flag = thl_festival_unlock_checked
+		}
+		OR = {
+			AND = {
+				OR = {
+					has_civic = civic_hakurei_shinto
+					has_civic = civic_hakurei_shinto_corp
+				}
+				any_owned_planet = {
+					OR = {
+						has_building = building_hakurei_shrine_0
+						has_building = building_hakurei_shrine
+						has_deposit = d_hakurei_shrine
+						has_deposit = d_hakurei_shrine_large
+						has_deposit = d_hakurei_shrine_imperial
+						has_deposit = d_hakurei_shrine_psionic
+					}
+				}
+			}
+			AND = {
+				NOR = {
+					has_civic = civic_hakurei_shinto
+					has_civic = civic_hakurei_shinto_corp
+				}
+				any_owned_planet = {
+					OR = {
+						has_building = building_hakurei_shrine_0
+						has_building = building_hakurei_shrine
+						has_building = building_moriya_shrine
+						has_building = holding_building_moriya_shrine
+						has_deposit = d_hakurei_shrine
+						has_deposit = d_hakurei_shrine_large
+						has_deposit = d_hakurei_shrine_imperial
+						has_deposit = d_hakurei_shrine_psionic
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		set_country_flag = thl_festival_unlock_checked
+		if = {
+			limit = {
+				OR = {
+					has_civic = civic_hakurei_shinto
+					has_civic = civic_hakurei_shinto_corp
+				}
+			}
+			country_event = { id = touhou_paragon.40651 }
+		}
+		else = {
+			country_event = { id = touhou_paragon.40652 }
+		}
+	}
+}
+
+country_event = {
+	id = touhou_paragon.40651
+	title = touhou_paragon.40651.name
+	desc = touhou_paragon.40651.desc
+	picture = GFX_evt_reimu_spell_card
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = touhou_paragon.40651.a
+		custom_tooltip = touhou_paragon.40651.a.response
+		set_country_flag = thl_unlock_hakurei_reitaisai
+	}
+}
+
+country_event = {
+	id = touhou_paragon.40652
+	title = touhou_paragon.40652.name
+	desc = touhou_paragon.40652.desc
+	picture = GFX_evt_reimu_spell_card
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = touhou_paragon.40652.a
+		custom_tooltip = touhou_paragon.40652.a.response
+		set_country_flag = thl_unlock_planet_tho
+	}
+}
+
 leader_event = {
 	id = touhou_paragon.40620
 	title = touhou_paragon.40620.name
@@ -1795,6 +1906,15 @@ country_event = {
 
 	immediate = {
 		random_owned_leader = {
+            weights = {
+                add = trigger:has_base_skill
+                multiply = 10
+                add = trigger:leader_age
+                modifier = {
+                    multiply = 0.01
+                    is_immortal = yes
+                }
+            }
 			limit = {
 				is_event_leader = no
 				NOR = {
@@ -1936,7 +2056,10 @@ country_event = {
 	fire_only_once = yes
 	location = capital_scope
 	trigger = {
-		has_megastructure = grand_archive_0
+		OR = {
+			has_megastructure = grand_archive_0
+			has_country_flag = has_arkship_grand_archive_module
+		}
 	}
 
 	immediate = {
@@ -1963,18 +2086,57 @@ country_event = {
 	location = capital_scope
 
 	immediate = {
-		random_owned_megastructure = {
+		if = {
 			limit = {
-				is_megastructure_type = grand_archive_0
+				has_megastructure = grand_archive_0
 			}
-			save_event_target_as = target_grand_archive
+			random_owned_megastructure = {
+				limit = {
+					is_megastructure_type = grand_archive_0
+				}
+				save_event_target_as = target_grand_archive
+			}
+		}
+		else_if = {
+			limit = {
+				has_country_flag = has_arkship_grand_archive_module
+			}
+			random_owned_fleet = {
+				limit = {
+					is_arkship_fleet = yes
+					starbase = {
+						has_starbase_module = arkship_grand_archive
+					}
+				}
+				save_event_target_as = target_grand_archive
+			}
+		}
+		else = {
+			capital_scope = {
+				save_event_target_as = target_grand_archive
+			}
 		}
 	}
 
 	option = {
+		trigger = {
+			is_nomadic = no
+		}
 		name = touhou_paragon.40731.a
 		enable_special_project = {
 			name = MARISA_SPECIAL_PROJECT
+			location = event_target:target_grand_archive
+			owner = root
+		}
+	}
+
+	option = {
+		trigger = {
+			is_nomadic = yes
+		}
+		name = touhou_paragon.40731.a.ark
+		enable_special_project = {
+			name = MARISA_SPECIAL_PROJECT_ARK
 			location = event_target:target_grand_archive
 			owner = root
 		}
@@ -2035,11 +2197,35 @@ country_event = {
 	location = capital_scope
 
 	immediate = {
-		random_owned_megastructure = {
+		if = {
 			limit = {
-				is_megastructure_type = grand_archive_0
+				has_megastructure = grand_archive_0
 			}
-			save_event_target_as = target_grand_archive
+			random_owned_megastructure = {
+				limit = {
+					is_megastructure_type = grand_archive_0
+				}
+				save_event_target_as = target_grand_archive
+			}
+		}
+		else_if = {
+			limit = {
+				has_country_flag = has_arkship_grand_archive_module
+			}
+			random_owned_fleet = {
+				limit = {
+					is_arkship_fleet = yes
+					starbase = {
+						has_starbase_module = arkship_grand_archive
+					}
+				}
+				save_event_target_as = target_grand_archive
+			}
+		}
+		else = {
+			capital_scope = {
+				save_event_target_as = target_grand_archive
+			}
 		}
 		set_timed_country_flag = {
 			flag = marisa_task_timer
@@ -2168,6 +2354,10 @@ country_event = {
 			has_fleet_flag = marisa_task_npc_fleet
 		}
 	}
+    immediate = {
+        remove_country_flag = marisa_task_player_country
+        set_country_flag = marisa_task_finished
+    }
 	option = {
 		name = touhou_paragon.40734.a
 		country_event = {
@@ -2180,8 +2370,6 @@ country_event = {
 				prefix = yes
 			}
 		}
-		remove_country_flag = marisa_task_player_country
-		set_country_flag = marisa_task_finished
 	}
 }
 
@@ -2765,6 +2953,8 @@ country_event = { #Crisis
 		name = touhou_paragon.42201.a
 		response_text = touhou_paragon.42201.a.response
 		custom_tooltip =  touhou_paragon.yuka.tt
+        remove_country_flag = hired_yuka
+        set_country_flag = hired_yuka_commander
 		add_research_option = tech_master_spark
 		add_research_option = tech_final_spark
 		hidden_effect = {
@@ -2849,6 +3039,8 @@ country_event = { #Crisis
 		name = touhou_paragon.42202.a
 		response_text = touhou_paragon.42202.a.response
 		custom_tooltip =  touhou_paragon.yuka.tt
+        remove_country_flag = hired_yuka
+        set_country_flag = hired_yuka_commander
 		add_research_option = tech_master_spark
 		add_research_option = tech_final_spark
 		hidden_effect = {
@@ -3666,10 +3858,21 @@ country_event = {
 		is_dialog_only = yes
 	}
 	option = {
+        trigger = {
+            is_nomadic = no
+        }
 		name = touhou_paragon.50001.f
 		response_text = touhou_paragon.50001.f.responce
 		is_dialog_only = yes
 	}
+    option = {
+        trigger = {
+            is_nomadic = yes
+        }
+        name = touhou_paragon.50001.ark
+        response_text = touhou_paragon.50001.f.responce
+        is_dialog_only = yes
+    }
 	option = {
 		name = touhou_paragon.50001.g
 		response_text = touhou_paragon.50001.g.responce
@@ -3680,7 +3883,7 @@ country_event = {
 		}
 		hidden_effect = {
 			fromfrom = {
-				set_planet_flag = shrine_ruin_planet
+				set_carrier_flag = shrine_ruin_planet
 				if = {
 					limit = {
 						is_colonizable = no
@@ -3707,7 +3910,7 @@ country_event = {
 		}
 		hidden_effect = {
 			fromfrom = {
-				set_planet_flag = shrine_ruin_planet
+				set_carrier_flag = shrine_ruin_planet
 				if = {
 					limit = {
 						is_colonizable = no
@@ -3727,7 +3930,7 @@ country_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = touhou_paragon.50002
 	title = touhou_paragon.50002.name
 	desc = touhou_paragon.50002.desc
@@ -3841,7 +4044,7 @@ planet_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = touhou_paragon.50003
 	title = touhou_paragon.50003.name
 	desc = touhou_paragon.50003.desc
@@ -3861,7 +4064,7 @@ planet_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = touhou_paragon.50004
 	title = touhou_paragon.50004.name
 	desc = touhou_paragon.50004.desc
@@ -3881,7 +4084,7 @@ planet_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = touhou_paragon.50005
 	title = touhou_paragon.50005.name
 	desc = touhou_paragon.50005.desc
@@ -3901,7 +4104,7 @@ planet_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = touhou_paragon.50010
 	title = touhou_paragon.50010.name
 	desc = touhou_paragon.50010.desc
@@ -3911,7 +4114,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		has_planet_flag = shrine_ruin_planet
+		has_carrier_flag = shrine_ruin_planet
 	}
 
 	option = {
@@ -3921,7 +4124,7 @@ planet_event = {
 }
 
 #米丝蒂娅事件链
-planet_event = {
+carrier_event = {
 	id = touhou_paragon.43110
 	title = touhou_paragon.43110.name
 	desc = touhou_paragon.43110.desc
@@ -4036,7 +4239,7 @@ country_event = {
 }
 
 #因幡帝事件链
-planet_event = {
+carrier_event = {
 	id = touhou_paragon.43210
 	title = touhou_paragon.43210.name
 	desc = touhou_paragon.43210.desc
@@ -5592,15 +5795,15 @@ astral_rift_event = {
 					orbit_distance_offset = 10
 					orbit_angle_offset = 5
 					init_effect = {
-						set_planet_flag = habitat
-						set_planet_flag = habitat_level_1
+						set_carrier_flag = habitat
+						set_carrier_flag = habitat_level_1
 						set_planet_entity = {
 							entity = "habitat_phase_01_entity"
 							graphical_culture = humanoid_01
 						}
 						save_event_target_as = pre_sapient_planet
 						create_generic_presapient_species = { UPLIFT_TO = MAM }
-						set_planet_flag = pre_sapient_planet
+						set_carrier_flag = pre_sapient_planet
 						add_deposit = d_hifuu_habitat_research
 						add_deposit = d_dangerous_wildlife_blocker
 						add_deposit = d_dangerous_wildlife_blocker
@@ -5908,7 +6111,7 @@ country_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = touhou_paragon.42001
 	title = touhou_paragon.42001.name
 	desc = touhou_paragon.42001.desc
@@ -7037,7 +7240,7 @@ leader_event = {
 		}
 		hidden_effect = {
 			set_variable = {
-				which = thl_gestalt_influenced_by_crino
+				which = thl_gestalt_influenced_by_cirno
 				value = 0
 			}
 		}
@@ -7053,7 +7256,7 @@ country_event = {
 
 	immediate = {
 		change_variable = {
-			which = thl_gestalt_influenced_by_crino
+			which = thl_gestalt_influenced_by_cirno
 			value = 1
 		}
 		country_event = {
@@ -7090,14 +7293,14 @@ country_event = {
 
 	trigger = {
 		check_variable = {
-			which = thl_gestalt_influenced_by_crino
+			which = thl_gestalt_influenced_by_cirno
 			value = 9
 		}
 	}
 
 	immediate = {
 		change_variable = {
-			which = thl_gestalt_influenced_by_crino
+			which = thl_gestalt_influenced_by_cirno
 			value = -9
 		}
 		random_list = {
@@ -7116,11 +7319,11 @@ country_event = {
 	id = touhou_paragon.80103
 	title = touhou_paragon.80102.name
 	desc = {
-		trigger = { NOT = { has_country_flag = thl_gestalt_influenced_by_crino_flag } }
+		trigger = { NOT = { has_country_flag = thl_gestalt_influenced_by_cirno_flag } }
 		text = touhou_paragon.80102.desc_1
 	}
 	desc = {
-		trigger = { has_country_flag = thl_gestalt_influenced_by_crino_flag }
+		trigger = { has_country_flag = thl_gestalt_influenced_by_cirno_flag }
 		text = touhou_paragon.80102.desc_2
 	}
 	is_triggered_only = yes
@@ -7136,7 +7339,7 @@ country_event = {
 		name = touhou_paragon.80102.option_1
 		custom_tooltip = touhou_paragon.80102.option_cust
 		trigger = {
-			NOT = { has_country_flag = thl_gestalt_influenced_by_crino_flag }
+			NOT = { has_country_flag = thl_gestalt_influenced_by_cirno_flag }
 		}
 		add_monthly_resource_mult = {
 			resource = physics_research
@@ -7150,7 +7353,7 @@ country_event = {
 			resource = engineering_research
 			value = 9
 		}
-		set_country_flag = thl_gestalt_influenced_by_crino_flag
+		set_country_flag = thl_gestalt_influenced_by_cirno_flag
 	}
 	option = {
 		name = touhou_paragon.80102.option_2

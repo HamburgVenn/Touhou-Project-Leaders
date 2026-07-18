@@ -82,10 +82,10 @@ building_shrine = {
 					}
 				}
 			}
-			planet_event = {
+			carrier_event = {
 				id = touhou_paragon.50003
 			}
-			set_planet_flag = sizuha_planet
+			set_carrier_flag = sizuha_planet
 		}
 		if = {
 			limit = {
@@ -102,10 +102,10 @@ building_shrine = {
 					}
 				}
 			}
-			planet_event = {
+			carrier_event = {
 				id = touhou_paragon.50004
 			}
-			set_planet_flag = minoriko_planet
+			set_carrier_flag = minoriko_planet
 		}
 		if = {
 			limit = {
@@ -125,10 +125,10 @@ building_shrine = {
 					}
 				}
 			}
-			planet_event = {
+			carrier_event = {
 				id = touhou_paragon.50005
 			}
-			set_planet_flag = hina_planet
+			set_carrier_flag = hina_planet
 		}
 		if = {
 			limit = {
@@ -293,28 +293,28 @@ building_moriya_shrine = {
 
 	triggered_planet_modifier = {
 		potential = {
-			has_planet_flag = moriya_storm_attraction
+			has_carrier_flag = moriya_storm_attraction
 		}
 		storm_attraction_field_modifier = 0.6
 	}
 
 	triggered_desc = {
 		trigger = {
-			has_planet_flag = moriya_storm_attraction
+			has_carrier_flag = moriya_storm_attraction
 		}
 		text = "building_cosmic_storm_advanced_attraction_center_tt"
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-			has_planet_flag = moriya_storm_repelling
+			has_carrier_flag = moriya_storm_repelling
 		}
 		storm_repelling_field_modifier = 0.6
 	}
 
 	triggered_desc = {
 		trigger = {
-			has_planet_flag = moriya_storm_repelling
+			has_carrier_flag = moriya_storm_repelling
 		}
 		text = "building_cosmic_storm_advanced_repellent_center_tt"
 	}
@@ -496,10 +496,10 @@ building_hakurei_shrine_0 = {
 					}
 				}
 			}
-			planet_event = {
+			carrier_event = {
 				id = touhou_paragon.50003
 			}
-			set_planet_flag = sizuha_planet
+			set_carrier_flag = sizuha_planet
 		}
 		if = {
 			limit = {
@@ -516,10 +516,10 @@ building_hakurei_shrine_0 = {
 					}
 				}
 			}
-			planet_event = {
+			carrier_event = {
 				id = touhou_paragon.50004
 			}
-			set_planet_flag = minoriko_planet
+			set_carrier_flag = minoriko_planet
 		}
 		if = {
 			limit = {
@@ -538,10 +538,10 @@ building_hakurei_shrine_0 = {
 					}
 				}
 			}
-			planet_event = {
+			carrier_event = {
 				id = touhou_paragon.50005
 			}
-			set_planet_flag = hina_planet
+			set_carrier_flag = hina_planet
 		}
 		if = {
 			limit = {
@@ -1608,9 +1608,10 @@ building_corpses_disposal_center = {
 		produces = {
 			energy = 10
 			food = 10
-			thl_spirit = 10
 		}
 	}
+
+    custom_tooltip = building_corpses_disposal_center_effect
 
 	triggered_desc = {
 		trigger = {
@@ -1715,6 +1716,101 @@ building_posthumous_employment_center = {
 		}
 		text = tooltip_organic_and_artificial_assembly_warning
 	}
+}
+
+building_soul_nexus = {
+    base_buildtime = @b3_time
+    base_cap_amount = 1
+
+    building_sets = {
+        government
+        urban
+    }
+
+    potential = {
+        exists = owner
+        NOT = { has_modifier = resort_colony }
+        OR = {
+            owner = { is_ai = no }
+            NOT = { exists = assembling_species }
+            assembling_species = { is_organic_species = yes }
+        }
+        OR = {
+            owner = { is_ai = no }
+            NAND = {
+                free_district_slots = 0
+                free_building_slots <= 1
+                free_housing <= 0
+                free_jobs <= 0
+            }
+        }
+    }
+
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            AND = {
+                owner = { is_ai = yes }
+                free_district_slots = 0
+                free_building_slots = 0
+                free_housing <= 0
+                free_jobs <= 0
+            }
+        }
+    }
+
+    category = pop_assembly
+
+    triggered_planet_pop_group_modifier_for_all = {
+        potential = {
+            owner = {
+                has_cloning_tradition = no
+            }
+        }
+        bonus_pop_growth = 1.5
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_cloning_tradition = no
+            }
+        }
+        fake_pop_growth_mod = 1.5
+    }
+
+    resources = {
+        category = planet_buildings_clone_vats
+
+        # Base cost
+        cost = {
+            minerals = 500
+            thl_spirit = 500
+        }
+
+        # Base upkeep
+        upkeep = {
+            energy = 2
+            thl_spirit = 15
+        }
+    }
+
+    custom_tooltip = building_soul_nexus_effect
+
+    triggered_desc = {
+        trigger = {
+            OR = {
+                has_building = building_robot_assembly_plant
+                AND = {
+                    exists = assembling_species
+                    assembling_species = { is_robotic_species = yes }
+                }
+            }
+        }
+        text = tooltip_organic_and_artificial_assembly_warning
+    }
+    is_essential = yes
 }
 
 #####################

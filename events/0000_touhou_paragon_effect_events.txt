@@ -6,19 +6,19 @@ namespace = paragon_2
 # to kick of the recursive check in X days
 # This = planet
 # From = country attacking
-planet_event = {
+carrier_event = {
     id = paragon_2.1105
     hide_window = yes
     is_triggered_only = yes
 
     # Prevent duplicate events
     trigger = {
-        not = { has_planet_flag = checking_supreme_warrior }
+        not = { has_carrier_flag = checking_supreme_warrior }
     }
 
     immediate = {
-        set_planet_flag = checking_supreme_warrior # Prevent duplicate events
-        planet_event = {
+        set_carrier_flag = checking_supreme_warrior # Prevent duplicate events
+        carrier_event = {
             id = paragon_2.1106
             days = 10
         }
@@ -123,7 +123,7 @@ leader_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = paragon_2.1106
     hide_window = yes
     is_triggered_only = yes
@@ -131,7 +131,7 @@ planet_event = {
     immediate = {
         if = {
             limit = { has_ground_combat = no }
-            remove_planet_flag = checking_supreme_warrior
+            remove_carrier_flag = checking_supreme_warrior
         }
         else = {
             # Handle both sides of the ground combat
@@ -229,7 +229,7 @@ planet_event = {
                 }
             }
             # Do the same check again in X days
-            planet_event = { id = paragon_2.1106 days = 10 } # NOTE: Update custom loc for effect when changing days
+            carrier_event = { id = paragon_2.1106 days = 10 } # NOTE: Update custom loc for effect when changing days
         }
     }
 }
@@ -347,12 +347,12 @@ country_event = {
                                 has_trait = leader_trait_pilferer
                                 FROMFROM = {
                                     NOT = {
-                                        has_planet_flag = recent_looted_by@root
+                                        has_carrier_flag = recent_looted_by@root
                                     }
                                 }
                             }
                             FROMFROM = {
-                                set_timed_planet_flag = {
+                                set_timed_carrier_flag = {
                                     flag = recent_looted_by@root
                                     years = 10
                                 }
@@ -557,13 +557,13 @@ country_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.1
     hide_window = yes
     is_triggered_only = yes
     immediate = {
         planet = {
-            planet_event = {
+            carrier_event = {
                 id = touhou_paragon_effect.2
                 days = 1
             }
@@ -572,7 +572,7 @@ planet_event = {
 }
 
 #地震
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.2
     hide_window = yes
     is_triggered_only = yes
@@ -624,7 +624,7 @@ country_event = {
 }
 
 #引发奇迹：在殖民地触发低概率事件
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.4
     hide_window = yes
     is_triggered_only = yes
@@ -643,7 +643,7 @@ planet_event = {
 
             ### Colony Events & Chains - 14
             3 = {
-                planet_event = { id = colony.1 }
+                carrier_event = { id = colony.1 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -666,7 +666,7 @@ planet_event = {
                 }
             }
             3 = {
-                planet_event = { id = colony.50 }
+                carrier_event = { id = colony.50 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -685,7 +685,7 @@ planet_event = {
                 }
             }
             3 = {
-                planet_event = { id = colony.1500 }
+                carrier_event = { id = colony.1500 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -696,7 +696,7 @@ planet_event = {
                         pop_amount > 0
                         NOR = {
                             is_planet_class = pc_habitat
-                            has_planet_flag = FLDrone_event
+                            has_carrier_flag = FLDrone_event
                         }
                         has_moon = yes
                         any_moon = {
@@ -706,7 +706,7 @@ planet_event = {
                 }
             }
             3 = {
-                planet_event = { id = colony.1520 }
+                carrier_event = { id = colony.1520 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -718,7 +718,7 @@ planet_event = {
                         NOR = {
                             has_global_flag = pheromonefrenzy_global
                             has_global_flag = pheromonefrenzy_done_global
-                            has_planet_flag = pheromone_planet
+                            has_carrier_flag = pheromone_planet
                             is_planet_class = pc_ringworld_habitable
                             is_planet_class = pc_shattered_ring_habitable
                             is_planet_class = pc_habitat
@@ -734,7 +734,7 @@ planet_event = {
             }
 
             15 = {
-                planet_event = { id = colony.100 }
+                carrier_event = { id = colony.100 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -743,7 +743,7 @@ planet_event = {
                         habitable_planet = yes
                         uses_district_set = standard
                         NOR = {
-                            has_planet_flag = abandoned_terraforming_planet
+                            has_carrier_flag = abandoned_terraforming_planet
                             is_planet_class = pc_nuked
                             is_planet_class = pc_gaia
                             is_planet_class = pc_relic
@@ -790,7 +790,7 @@ planet_event = {
                 }
             }
             6 = {
-                planet_event = { id = colony.180 }
+                carrier_event = { id = colony.180 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -801,8 +801,8 @@ planet_event = {
                             is_planet_class = pc_habitat
                             is_planet_class = pc_ringworld_habitable
                             is_planet_class = pc_shattered_ring_habitable
-                            has_planet_flag = asteroid_sighted
-                            has_planet_flag = asteroid_collision
+                            has_carrier_flag = asteroid_sighted
+                            has_carrier_flag = asteroid_collision
                             has_global_flag = asteroid_sighted_global
                             owner = { has_country_flag = asteroid_sighted_country }
                         }
@@ -810,7 +810,7 @@ planet_event = {
                 }
             }
             3 = {
-                planet_event = { id = colony.2001 }
+                carrier_event = { id = colony.2001 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -837,7 +837,7 @@ planet_event = {
                 }
             }
             15 = {
-                planet_event = { id = colony.2005 }
+                carrier_event = { id = colony.2005 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -858,7 +858,7 @@ planet_event = {
             }
 
             15 = {
-                planet_event = { id = colony.2015 }
+                carrier_event = { id = colony.2015 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -879,7 +879,7 @@ planet_event = {
                 }
             }
             15 = {
-                planet_event = { id = colony.2025}
+                carrier_event = { id = colony.2025}
                 modifier = {
                     factor = 0
                     NOR = {
@@ -909,7 +909,7 @@ planet_event = {
                 }
             }
             10 = {
-                planet_event = { id = colony.3001 }
+                carrier_event = { id = colony.3001 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -937,7 +937,7 @@ planet_event = {
             }
 
             8 = {
-                planet_event = { id = colony.9000 }
+                carrier_event = { id = colony.9000 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -954,7 +954,7 @@ planet_event = {
                 }
             }
             8 = {
-                planet_event = { id = colony.9050 }
+                carrier_event = { id = colony.9050 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -970,7 +970,7 @@ planet_event = {
                 }
             }
             8 = {
-                planet_event = { id = colony.9295 }
+                carrier_event = { id = colony.9295 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -992,7 +992,7 @@ planet_event = {
             }
 
             15 = {
-                planet_event = { id = colony.2060 }
+                carrier_event = { id = colony.2060 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -1007,7 +1007,7 @@ planet_event = {
 
             ### Federations
             3 = {
-                planet_event = { id = colony_fed.100 }
+                carrier_event = { id = colony_fed.100 }
                 modifier = {
                     factor = 0
                     NOR = {
@@ -1042,7 +1042,7 @@ planet_event = {
 }
 
 #引发奇迹：被勘测星球
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.5
     hide_window = yes
     is_triggered_only = yes
@@ -1671,7 +1671,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.3005
             }
         }
@@ -1824,7 +1824,7 @@ country_event = {
             }
             NOR = {
                 has_global_flag = migrating_forests_global
-                has_planet_flag = colony_event
+                has_carrier_flag = colony_event
             }
         }
     }
@@ -1844,13 +1844,13 @@ country_event = {
                 }
                 NOR = {
                     has_global_flag = migrating_forests_global
-                    has_planet_flag = colony_event
+                    has_carrier_flag = colony_event
                 }
             }
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.1
             }
         }
@@ -1873,7 +1873,7 @@ country_event = {
             is_under_colonization = no
             NOR = {
                 has_global_flag = seismic_disturbance_global
-                has_planet_flag = colony_event
+                has_carrier_flag = colony_event
                 is_planet_class = pc_nuked
                 is_planet_class = pc_ringworld_habitable
                 is_planet_class = pc_shattered_ring_habitable
@@ -1892,7 +1892,7 @@ country_event = {
                 is_under_colonization = no
                 NOR = {
                     has_global_flag = seismic_disturbance_global
-                    has_planet_flag = colony_event
+                    has_carrier_flag = colony_event
                     is_planet_class = pc_nuked
                     is_planet_class = pc_ringworld_habitable
                     is_planet_class = pc_shattered_ring_habitable
@@ -1904,7 +1904,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.50
             }
         }
@@ -1927,8 +1927,8 @@ country_event = {
             is_under_colonization = no
             NOR = {
                 is_planet_class = pc_habitat
-                has_planet_flag = colony_event
-                has_planet_flag = FLDrone_event
+                has_carrier_flag = colony_event
+                has_carrier_flag = FLDrone_event
             }
             has_moon = yes
             any_moon = {
@@ -1944,8 +1944,8 @@ country_event = {
                 is_under_colonization = no
                 NOR = {
                     is_planet_class = pc_habitat
-                    has_planet_flag = colony_event
-                    has_planet_flag = FLDrone_event
+                    has_carrier_flag = colony_event
+                    has_carrier_flag = FLDrone_event
                 }
                 has_moon = yes
                 any_moon = {
@@ -1955,7 +1955,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.1500
             }
         }
@@ -1979,8 +1979,8 @@ country_event = {
             NOR = {
                 has_global_flag = pheromonefrenzy_global
                 has_global_flag = pheromonefrenzy_done_global
-                has_planet_flag = colony_event
-                has_planet_flag = pheromone_planet
+                has_carrier_flag = colony_event
+                has_carrier_flag = pheromone_planet
                 is_planet_class = pc_ringworld_habitable
                 is_planet_class = pc_shattered_ring_habitable
                 is_planet_class = pc_habitat
@@ -2001,8 +2001,8 @@ country_event = {
                 NOR = {
                     has_global_flag = pheromonefrenzy_global
                     has_global_flag = pheromonefrenzy_done_global
-                    has_planet_flag = colony_event
-                    has_planet_flag = pheromone_planet
+                    has_carrier_flag = colony_event
+                    has_carrier_flag = pheromone_planet
                     is_planet_class = pc_ringworld_habitable
                     is_planet_class = pc_shattered_ring_habitable
                     is_planet_class = pc_habitat
@@ -2016,7 +2016,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.1520
             }
         }
@@ -2040,8 +2040,8 @@ country_event = {
             habitable_planet = yes
             uses_district_set = standard
             NOR = {
-                has_planet_flag = abandoned_terraforming_planet
-                has_planet_flag = colony_event
+                has_carrier_flag = abandoned_terraforming_planet
+                has_carrier_flag = colony_event
                 is_planet_class = pc_nuked
                 is_planet_class = pc_gaia
                 is_planet_class = pc_relic
@@ -2096,8 +2096,8 @@ country_event = {
                 habitable_planet = yes
                 uses_district_set = standard
                 NOR = {
-                    has_planet_flag = abandoned_terraforming_planet
-                    has_planet_flag = colony_event
+                    has_carrier_flag = abandoned_terraforming_planet
+                    has_carrier_flag = colony_event
                     is_planet_class = pc_nuked
                     is_planet_class = pc_gaia
                     is_planet_class = pc_relic
@@ -2144,7 +2144,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.100
             }
         }
@@ -2169,8 +2169,8 @@ country_event = {
                 is_planet_class = pc_habitat
                 is_planet_class = pc_ringworld_habitable
                 is_planet_class = pc_shattered_ring_habitable
-                has_planet_flag = asteroid_sighted
-                has_planet_flag = asteroid_collision
+                has_carrier_flag = asteroid_sighted
+                has_carrier_flag = asteroid_collision
                 has_global_flag = asteroid_sighted_global
                 owner = { has_country_flag = asteroid_sighted_country }
             }
@@ -2187,8 +2187,8 @@ country_event = {
                     is_planet_class = pc_habitat
                     is_planet_class = pc_ringworld_habitable
                     is_planet_class = pc_shattered_ring_habitable
-                    has_planet_flag = asteroid_sighted
-                    has_planet_flag = asteroid_collision
+                    has_carrier_flag = asteroid_sighted
+                    has_carrier_flag = asteroid_collision
                     has_global_flag = asteroid_sighted_global
                     owner = { has_country_flag = asteroid_sighted_country }
                 }
@@ -2196,7 +2196,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.180
             }
         }
@@ -2218,7 +2218,7 @@ country_event = {
             is_colony = yes
             is_under_colonization = no
             NOT = {
-                has_planet_flag = colony_event
+                has_carrier_flag = colony_event
             }
             OR = {
                 is_planet_class = pc_continental
@@ -2235,7 +2235,7 @@ country_event = {
                 is_colony = yes
                 is_under_colonization = no
                 NOT = {
-                    has_planet_flag = colony_event
+                    has_carrier_flag = colony_event
                 }
                 OR = {
                     is_planet_class = pc_continental
@@ -2247,7 +2247,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.2005
             }
         }
@@ -2269,7 +2269,7 @@ country_event = {
             is_colony = yes
             is_under_colonization = no
             NOR = {
-                has_planet_flag = colony_event
+                has_carrier_flag = colony_event
                 is_planet_class = pc_ringworld_habitable
                 is_planet_class = pc_shattered_ring_habitable
                 is_planet_class = pc_habitat
@@ -2283,7 +2283,7 @@ country_event = {
                 is_colony = yes
                 is_under_colonization = no
                 NOR = {
-                    has_planet_flag = colony_event
+                    has_carrier_flag = colony_event
                     is_planet_class = pc_ringworld_habitable
                     is_planet_class = pc_shattered_ring_habitable
                     is_planet_class = pc_habitat
@@ -2292,7 +2292,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.2015
             }
         }
@@ -2314,7 +2314,7 @@ country_event = {
             is_colony = yes
             is_under_colonization = no
             NOR = {
-                has_planet_flag = colony_event
+                has_carrier_flag = colony_event
                 is_planet_class = pc_habitat
             }
             any_owned_pop_group = {
@@ -2341,7 +2341,7 @@ country_event = {
                 is_colony = yes
                 is_under_colonization = no
                 NOR = {
-                    has_planet_flag = colony_event
+                    has_carrier_flag = colony_event
                     is_planet_class = pc_habitat
                 }
                 any_owned_pop_group = {
@@ -2362,7 +2362,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.2025
             }
         }
@@ -2387,7 +2387,7 @@ country_event = {
                 is_planet_class = pc_habitat
                 is_planet_class = pc_ringworld_habitable
                 is_planet_class = pc_shattered_ring_habitable
-                has_planet_flag = colony_event
+                has_carrier_flag = colony_event
             }
             has_moon = yes
             any_moon = {
@@ -2406,7 +2406,7 @@ country_event = {
                     is_planet_class = pc_habitat
                     is_planet_class = pc_ringworld_habitable
                     is_planet_class = pc_shattered_ring_habitable
-                    has_planet_flag = colony_event
+                    has_carrier_flag = colony_event
                 }
                 has_moon = yes
                 any_moon = {
@@ -2417,7 +2417,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.3001
             }
         }
@@ -2459,7 +2459,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.9000
             }
         }
@@ -2503,7 +2503,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.9050
             }
         }
@@ -2547,7 +2547,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.9295
             }
         }
@@ -2583,7 +2583,7 @@ country_event = {
             save_event_target_as = doorway_divination_planet
         }
         event_target:doorway_divination_planet = {
-            planet_event = {
+            carrier_event = {
                 id = colony.2060
             }
         }
@@ -2610,7 +2610,7 @@ country_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.35
     is_triggered_only = yes
     hide_window = yes
@@ -2819,7 +2819,7 @@ fleet_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.81
     hide_window = yes
 
@@ -2855,24 +2855,24 @@ planet_event = {
         if = {
             limit = {
                 is_planet_class = pc_ai
-                NOT = { has_planet_flag = machine_lair }
+                NOT = { has_carrier_flag = machine_lair }
             }
-            set_planet_flag = destroyed_by_colossus
-            set_planet_flag = planet_shielded
-            planet_event = { id = crisis.2040 }
+            set_carrier_flag = destroyed_by_colossus
+            set_carrier_flag = planet_shielded
+            carrier_event = { id = crisis.2040 }
         }
 
         # Contingency Final Machine World
         if = {
             limit = {
                 is_planet_class = pc_ai
-                has_planet_flag = machine_lair
+                has_carrier_flag = machine_lair
             }
-            set_planet_flag = destroyed_by_colossus
-            set_planet_flag = planet_shielded
+            set_carrier_flag = destroyed_by_colossus
+            set_carrier_flag = planet_shielded
             stop_crisis_sound = yes
             from = { save_event_target_as = final_machine_world_destroyer }
-            planet_event = { id = crisis.2046 }
+            carrier_event = { id = crisis.2046 }
         }
 
         # Swarm Situation Log counter
@@ -3131,7 +3131,7 @@ country_event = {
 }
 
 # Fired by on_colony_monthly_pulse
-planet_event = { #Braiiiins
+carrier_event = { #Braiiiins
     id = touhou_paragon_effect.250
     is_triggered_only = yes
     hide_window = yes
@@ -3169,6 +3169,44 @@ planet_event = { #Braiiiins
     }
 }
 
+carrier_event = { #Braiiiins
+    id = touhou_paragon_effect.251
+    is_triggered_only = yes
+    hide_window = yes
+
+    trigger = {
+        check_modifier_value = {
+            modifier = fake_pop_growth_mod
+            value > 0
+        }
+        any_owned_species = {
+            is_organic_species = yes
+            NOT = { has_trait = trait_thl_spirit }
+        }
+        owner = {
+            any_owned_leader = {
+                has_trait = thl_leader_trait_death
+            }
+        }
+        has_building = building_soul_nexus
+    }
+
+    immediate = {
+        set_variable = {
+            which = spirit_pop_amount
+            value = 0
+        }
+        export_modifier_to_variable = {
+            modifier = fake_pop_growth_mod
+            variable = spirit_pop_amount
+        }
+        create_spirit_pop_group = {
+            SIZE = spirit_pop_amount
+        }
+        clear_variable = spirit_pop_amount
+    }
+}
+
 country_event = {
     id = touhou_paragon_effect.200
     hide_window = yes
@@ -3199,7 +3237,7 @@ country_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.201
     hide_window = yes
     is_triggered_only = yes
@@ -3360,7 +3398,7 @@ country_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.301
     title = "origin.301.name"
     desc = "origin.301.desc"
@@ -3428,7 +3466,7 @@ country_event = {
 }
 
 # Planet is turned into tomb world by special bombing stance
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.303
     hide_window = yes
 
@@ -3475,7 +3513,7 @@ planet_event = {
         }
         from = { country_event = { id = touhou_paragon_effect.305 } }
         change_pc = pc_frozen
-        set_planet_flag = nuked_planet_anomalies_disabled
+        set_carrier_flag = nuked_planet_anomalies_disabled
         remove_all_buildings = yes
         reroll_deposits = yes
         remove_modifier = "natural_beauty"
@@ -3555,7 +3593,7 @@ country_event = {
 
     immediate = {
         FromFromFrom = {
-            planet_event = {
+            carrier_event = {
                 id = touhou_paragon_effect.403
                 days = 1
             }
@@ -3585,7 +3623,7 @@ country_event = {
 
     immediate = {
         FromFromFrom = {
-            planet_event = {
+            carrier_event = {
                 id = touhou_paragon_effect.404
                 days = 1
             }
@@ -3593,7 +3631,7 @@ country_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.403
     hide_window = yes
     is_triggered_only = yes
@@ -3603,7 +3641,7 @@ planet_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.404
     hide_window = yes
     is_triggered_only = yes
@@ -3824,56 +3862,630 @@ system_event = {
 #复活
 country_event = {
     id = touhou_paragon_effect.600
-    title = "origin.600.name"
+    title = "touhou_paragon_effect.600.name"
     picture = GFX_evt_disease_outbreak
-    desc = origin.600.desc
+    desc = touhou_paragon_effect.600.desc
 
     is_triggered_only = yes
 
-    trigger = {
-        any_owned_leader = {
-            is_councilor = yes
-            has_trait = thl_thl_leader_trait_death_deal
-        }
-        from = {
-            is_pool_leader = no
-            NOT = { leader_class = envoy }
-            NOR = {
-                has_trait = leader_trait_governor_gray
-                has_trait = thl_thl_leader_trait_death_dealer
-                has_trait = thl_leader_trait_memory
-                has_trait = thl_leader_trait_time
+    option = {
+        name = touhou_paragon_effect.600.a1
+        allow = {
+            has_country_flag = hired_tenshi
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_earthquake
+                }
             }
-            thl_will_leader_survive = no
+        }
+        hidden_effect = {
+            create_tenshi_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.a2
+        allow = {
+            has_country_flag = hired_suika
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_density
+                }
+            }
+        }
+        hidden_effect = {
+            create_suika_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.a3
+        allow = {
+            has_country_flag = hired_sanae
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_miracle
+                }
+            }
+        }
+        hidden_effect = {
+            create_sanae_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.a4
+        allow = {
+            has_country_flag = hired_cirno
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_ice
+                }
+            }
+        }
+        hidden_effect = {
+            create_cirno_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.a5
+        allow = {
+            has_country_flag = hired_meiling
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_kongfu
+                }
+            }
+        }
+        hidden_effect = {
+            create_meiling_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.a6
+        allow = {
+            has_country_flag = hired_reimu
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_invincible
+                }
+            }
+        }
+        hidden_effect = {
+            create_reimu_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.a7
+        allow = {
+            has_country_flag = hired_marisa
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_magic
+                }
+            }
+        }
+        hidden_effect = {
+            create_marisa_leader = yes
         }
     }
 
     option = {
-        name = origin.600.a
+        name = touhou_paragon_effect.600.z1
+        country_event = {
+            id = touhou_paragon_effect.601
+        }
+    }
+}
+
+country_event = {
+    id = touhou_paragon_effect.601
+    title = "touhou_paragon_effect.600.name"
+    picture = GFX_evt_disease_outbreak
+    desc = touhou_paragon_effect.600.desc
+
+    is_triggered_only = yes
+
+    option = {
+        name = touhou_paragon_effect.600.b1
         allow = {
-            resource_stockpile_compare = {
-                resource = energy
-                value >= 2000
-                mult = From.trigger:has_base_skill
+            has_country_flag = hired_reisen
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_wave_length
+                }
             }
         }
-        add_resource = {
-            energy = -2000
-            mult = From.trigger:has_base_skill
-        }
-        custom_tooltip = deal_and_revive
         hidden_effect = {
-            clone_leader = {
-                target = From
+            create_reisen_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.b2
+        allow = {
+            has_country_flag = hired_youmu
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_kendo
+                }
             }
-            last_created_leader = {
-                add_trait = { trait = thl_thl_leader_trait_death_dealer }
+        }
+        hidden_effect = {
+            create_youmu_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.b3
+        allow = {
+            has_country_flag = hired_sakuya
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_time
+                }
+            }
+        }
+        hidden_effect = {
+            create_sakuya_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.b4
+        allow = {
+            has_country_flag = hired_merry
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_border_merry
+                }
+            }
+        }
+        hidden_effect = {
+            create_merry_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.b5
+        allow = {
+            has_country_flag = hired_renko
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_star_located
+                }
+            }
+        }
+        hidden_effect = {
+            create_renko_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.b6
+        allow = {
+            has_country_flag = hired_satori
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_mind_reader
+                }
+            }
+        }
+        hidden_effect = {
+            create_satori_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.b7
+        allow = {
+            has_country_flag = hired_koishi
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_subconscious
+                }
+            }
+        }
+        hidden_effect = {
+            create_koishi_leader = yes
+        }
+    }
+
+    option = {
+        name = touhou_paragon_effect.600.z1
+        country_event = {
+            id = touhou_paragon_effect.602
+        }
+    }
+}
+
+country_event = {
+    id = touhou_paragon_effect.602
+    title = "touhou_paragon_effect.600.name"
+    picture = GFX_evt_disease_outbreak
+    desc = touhou_paragon_effect.600.desc
+
+    is_triggered_only = yes
+
+    option = {
+        name = touhou_paragon_effect.600.c1
+        allow = {
+            has_country_flag = hired_aya
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_wind
+                }
+            }
+        }
+        hidden_effect = {
+            create_aya_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.c2
+        allow = {
+            has_country_flag = hired_shikieiki
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_trial
+                }
+            }
+        }
+        hidden_effect = {
+            create_shikieiki_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.c3
+        allow = {
+            has_country_flag = hired_onoduka
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_distance
+                }
+            }
+        }
+        hidden_effect = {
+            create_onoduka_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.c4
+        allow = {
+            has_country_flag = hired_patchouli
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_elements
+                }
+            }
+        }
+        hidden_effect = {
+            create_patchouli_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.c5
+        allow = {
+            has_country_flag = hired_remilia
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_destiny_manipulation
+                }
+            }
+        }
+        hidden_effect = {
+            create_remilia_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.c6
+        allow = {
+            has_country_flag = hired_alice
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_dolls
+                }
+            }
+        }
+        hidden_effect = {
+            create_alice_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.c7
+        allow = {
+            has_country_flag = hired_yuyuko
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_death
+                }
+            }
+        }
+        hidden_effect = {
+            create_yuyuko_leader = yes
+        }
+    }
+
+    option = {
+        name = touhou_paragon_effect.600.z1
+        country_event = {
+            id = touhou_paragon_effect.603
+        }
+    }
+}
+
+country_event = {
+    id = touhou_paragon_effect.603
+    title = "touhou_paragon_effect.600.name"
+    picture = GFX_evt_disease_outbreak
+    desc = touhou_paragon_effect.600.desc
+
+    is_triggered_only = yes
+
+    option = {
+        name = touhou_paragon_effect.600.d1
+        allow = {
+            OR = {
+                has_country_flag = hired_yuka
+                has_country_flag = hired_yuka_commander
+            }
+            NOR = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_flower
+                }
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_flower_commander
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_country_flag = hired_yuka_commander
+            }
+            hidden_effect = {
+                civic_leader_creator = {
+                    SPECIES_CLASS = random_non_machine # Species class, for animation purposes, example: MAM4
+                    LEADER_PORTRAIT = x152
+                    CLASS = commander
+                    NAME = NAME_Yuka
+                    LEVEL = 10
+                    GENDER = female
+                    IMMORTAL = no
+                    ETHIC = militarist
+                    DESC = yuka1
+                    CATCH_PHRASE = yuka1_catch_phrase
+                }
+                last_created_leader = { #18
+                    add_trait = { trait = subclass_commander_admiral show_message = no }
+                    add_trait = { trait = leader_trait_demolisher_destiny show_message = no }
+                    add_trait = { trait = leader_trait_legendary_foe_hammer show_message = no }
+                    add_trait = { trait = leader_trait_legendary_commanding_presence show_message = no }
+                    add_trait = { trait = leader_trait_legendary_gunboat_diplomacy show_message = no }
+                    add_trait = { trait = leader_trait_aggressive show_message = no }
+                    add_trait = { trait = leader_trait_demolisher_2 show_message = no }
+                    add_trait = { trait = leader_trait_intimidator_2 show_message = no }
+                    add_trait = { trait = leader_trait_wrecker_2 show_message = no }
+                    add_trait = { trait = leader_trait_artillerist_2 show_message = no }
+                    add_trait = { trait = leader_trait_reckless_2 show_message = no }
+                    add_trait = { trait = leader_trait_tyrannical_2 show_message = no }
+                    add_trait = { trait = leader_trait_legendary_harsh_ruler show_message = no }
+                    add_trait = { trait = thl_leader_trait_flower_commander show_message = no }
+                    add_trait = { trait = thl_leader_trait_incarnation_of_nature_commander show_message = no }
+                    add_trait = { trait = thl_leader_trait_sleeping_terror_commander show_message = no }
+                    set_age = 17
+                }
+            }
+        }
+        else = {
+            hidden_effect = {
+                create_yuka_leader = yes
             }
         }
     }
     option = {
-        name = origin.600.b
-        custom_tooltip = no_deal_no_life
+        name = touhou_paragon_effect.600.d2
+        allow = {
+            has_country_flag = hired_kosuzu
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_books
+                }
+            }
+        }
+        hidden_effect = {
+            create_kosuzu_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.d3
+        allow = {
+            has_country_flag = hired_akyuu
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_memory
+                }
+            }
+        }
+        hidden_effect = {
+            create_akyuu_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.d4
+        allow = {
+            has_country_flag = hired_rin
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_corpse_travel
+                }
+            }
+        }
+        hidden_effect = {
+            create_rin_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.d5
+        allow = {
+            has_country_flag = hired_utsuho
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_nuclear
+                }
+            }
+        }
+        hidden_effect = {
+            create_utsuho_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.d6
+        allow = {
+            has_country_flag = hired_nitori
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_water
+                }
+            }
+        }
+        hidden_effect = {
+            create_nitori_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.d7
+        allow = {
+            has_country_flag = hired_sizuha
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_fall
+                }
+            }
+        }
+        hidden_effect = {
+            create_sizuha_leader = yes
+        }
+    }
+
+    option = {
+        name = touhou_paragon_effect.600.z1
+        country_event = {
+            id = touhou_paragon_effect.604
+        }
+    }
+}
+
+country_event = {
+    id = touhou_paragon_effect.604
+    title = "touhou_paragon_effect.600.name"
+    picture = GFX_evt_disease_outbreak
+    desc = touhou_paragon_effect.600.desc
+
+    is_triggered_only = yes
+
+    option = {
+        name = touhou_paragon_effect.600.e1
+        allow = {
+            has_country_flag = hired_minoriko
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_harvest
+                }
+            }
+        }
+        hidden_effect = {
+            create_minoriko_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.e2
+        allow = {
+            has_country_flag = hired_hina
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_jinx
+                }
+            }
+        }
+        hidden_effect = {
+            create_hina_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.e3
+        allow = {
+            has_country_flag = hired_mystia
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_song
+                }
+            }
+        }
+        hidden_effect = {
+            create_mystia_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.e4
+        allow = {
+            has_country_flag = hired_tewi
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_luck
+                }
+            }
+        }
+        hidden_effect = {
+            create_tewi_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.e5
+        allow = {
+            has_country_flag = hired_kanako
+            NOT = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_heaven
+                }
+            }
+        }
+        hidden_effect = {
+            create_kanako_leader = yes
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.e6
+        allow = {
+            OR = {
+                has_country_flag = hired_suwako
+                has_country_flag = hired_suwako_commander
+            }
+            NOR = {
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_earth
+                }
+                any_owned_leader = {
+                    has_trait = thl_leader_trait_no_fear_of_storm
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_country_flag = hired_suwako_commander
+            }
+            hidden_effect = {
+                create_suwako_commander_leader = yes
+            }
+        }
+        else = {
+            hidden_effect = {
+                create_suwako_leader = yes
+            }
+        }
+    }
+
+    option = {
+        name = touhou_paragon_effect.600.z2
+        country_event = {
+            id = touhou_paragon_effect.600
+        }
+    }
+    option = {
+        name = touhou_paragon_effect.600.z3
+        add_resource = {
+            trade = 20000
+        }
     }
 }
 
@@ -3934,6 +4546,8 @@ country_event = {
         clone_leader = {
             target = From
             skip_background_generation = yes
+            set_years_served = From
+            restore_leader_location = yes
         }
         last_created_leader = {
             if = {
@@ -4313,7 +4927,7 @@ leader_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.802
     hide_window = yes
     is_triggered_only = yes
@@ -4500,7 +5114,7 @@ fleet_event = {
 }
 
 #解封古代妖怪（对方无意战斗）
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.903
     title = touhou_paragon_effect.903.name
     desc = touhou_paragon_effect.903.desc
@@ -4636,14 +5250,14 @@ planet_event = {
                     }
                 }
             }
-            set_planet_flag = attacked_by_youkai
+            set_carrier_flag = attacked_by_youkai
             set_global_flag = battle_with_youkai
         }
     }
 }
 
 #解封古代妖怪（对方主动攻击）
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.904
     title = touhou_paragon_effect.904.name
     desc = touhou_paragon_effect.904.desc
@@ -4742,7 +5356,7 @@ planet_event = {
                     }
                 }
             }
-            set_planet_flag = attacked_by_youkai
+            set_carrier_flag = attacked_by_youkai
             set_global_flag = battle_with_youkai
         }
     }
@@ -4762,7 +5376,7 @@ country_event = {
 
     trigger = {
         FromFrom = {
-            has_planet_flag = attacked_by_youkai
+            has_carrier_flag = attacked_by_youkai
         }
     }
 
@@ -4777,7 +5391,7 @@ country_event = {
                 destroy_country = yes
             }
             FromFrom = {
-                remove_planet_flag = attacked_by_youkai
+                remove_carrier_flag = attacked_by_youkai
                 create_rebels = {
                     name = random
                     ethos = random
@@ -4956,7 +5570,7 @@ country_event = {
 
     trigger = {
         FromFrom = {
-            has_planet_flag = attacked_by_youkai
+            has_carrier_flag = attacked_by_youkai
         }
     }
 
@@ -4971,7 +5585,7 @@ country_event = {
                 destroy_country = yes
             }
             FromFrom = {
-                remove_planet_flag = attacked_by_youkai
+                remove_carrier_flag = attacked_by_youkai
             }
         }
     }
@@ -5093,7 +5707,7 @@ system_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.1104
     title = "touhou_paragon_effect.1104.name"
     desc = "touhou_paragon_effect.1104.desc"
@@ -5149,7 +5763,7 @@ country_event = {
 }
 
 # Planet is turned into tomb world by special bombing stance
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.1106
     hide_window = yes
 
@@ -5196,7 +5810,7 @@ planet_event = {
         }
         from = { country_event = { id = touhou_paragon_effect.1108 } }
         change_pc = pc_molten
-        set_planet_flag = nuked_planet_anomalies_disabled
+        set_carrier_flag = nuked_planet_anomalies_disabled
         remove_all_buildings = yes
         reroll_deposits = yes
         remove_modifier = "natural_beauty"
@@ -5666,7 +6280,7 @@ fleet_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.1204
     hide_window = yes
     is_triggered_only = yes
@@ -5975,7 +6589,7 @@ country_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.99
     hide_window = yes
     is_triggered_only = yes
@@ -6092,11 +6706,11 @@ country_event = {
 
     immediate = {
         every_owned_planet = {
-            planet_event = {
+            carrier_event = {
                 id = touhou_paragon_effect.71
                 days = 270
             }
-            planet_event = {
+            carrier_event = {
                 id = touhou_paragon_effect.72
                 days = 270
             }
@@ -6104,7 +6718,7 @@ country_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.71
     hide_window = yes
     is_triggered_only = yes
@@ -6146,7 +6760,7 @@ planet_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.72
     hide_window = yes
     is_triggered_only = yes
@@ -7894,7 +8508,7 @@ country_event = {
                     is_capital = no
                 }
                 save_event_target_as = target_planet_1
-                set_planet_flag = aya_target_planet
+                set_carrier_flag = aya_target_planet
             }
         }
         if = {
@@ -7903,7 +8517,7 @@ country_event = {
                     any_owned_planet = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                 }
@@ -7913,11 +8527,11 @@ country_event = {
                     limit = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                     save_event_target_as = target_planet_2
-                    set_planet_flag = aya_target_planet
+                    set_carrier_flag = aya_target_planet
                 }
             }
         }
@@ -7927,7 +8541,7 @@ country_event = {
                     any_owned_planet = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                 }
@@ -7937,11 +8551,11 @@ country_event = {
                     limit = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                     save_event_target_as = target_planet_3
-                    set_planet_flag = aya_target_planet
+                    set_carrier_flag = aya_target_planet
                 }
             }
         }
@@ -7951,7 +8565,7 @@ country_event = {
                     any_owned_planet = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                 }
@@ -7961,11 +8575,11 @@ country_event = {
                     limit = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                     save_event_target_as = target_planet_4
-                    set_planet_flag = aya_target_planet
+                    set_carrier_flag = aya_target_planet
                 }
             }
         }
@@ -7975,7 +8589,7 @@ country_event = {
                     any_owned_planet = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                 }
@@ -7985,11 +8599,11 @@ country_event = {
                     limit = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                     save_event_target_as = target_planet_5
-                    set_planet_flag = aya_target_planet
+                    set_carrier_flag = aya_target_planet
                 }
             }
         }
@@ -7999,7 +8613,7 @@ country_event = {
                     any_owned_planet = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                 }
@@ -8009,11 +8623,11 @@ country_event = {
                     limit = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                     save_event_target_as = target_planet_6
-                    set_planet_flag = aya_target_planet
+                    set_carrier_flag = aya_target_planet
                 }
             }
         }
@@ -8023,7 +8637,7 @@ country_event = {
                     any_owned_planet = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                 }
@@ -8033,11 +8647,11 @@ country_event = {
                     limit = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                     save_event_target_as = target_planet_7
-                    set_planet_flag = aya_target_planet
+                    set_carrier_flag = aya_target_planet
                 }
             }
         }
@@ -8047,7 +8661,7 @@ country_event = {
                     any_owned_planet = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                 }
@@ -8057,11 +8671,11 @@ country_event = {
                     limit = {
                         is_capital = no
                         NOT = {
-                            has_planet_flag = aya_target_planet
+                            has_carrier_flag = aya_target_planet
                         }
                     }
                     save_event_target_as = target_planet_8
-                    set_planet_flag = aya_target_planet
+                    set_carrier_flag = aya_target_planet
                 }
             }
         }
@@ -8175,9 +8789,9 @@ country_event = {
        event_target:target_country = {
            every_owned_planet = {
                limit = {
-                   has_planet_flag = aya_target_planet
+                   has_carrier_flag = aya_target_planet
                }
-               remove_planet_flag = aya_target_planet
+               remove_carrier_flag = aya_target_planet
            }
        }
     }
@@ -9374,7 +9988,7 @@ country_event = {
     }
 }
 
-planet_event = {
+carrier_event = {
     id = touhou_paragon_effect.41301
     hide_window = yes
     is_triggered_only = yes
@@ -9446,12 +10060,12 @@ country_event = {
         event_target:rich_mineral_garden_planet = {
             if = {
                 limit = {
-                    has_planet_flag = unstable
+                    has_carrier_flag = unstable
                 }
-                set_planet_flag = unstable_2
+                set_carrier_flag = unstable_2
             }
             else = {
-                set_planet_flag = unstable
+                set_carrier_flag = unstable
             }
             add_modifier = {
                 modifier = unstable_tectonics
@@ -10011,7 +10625,7 @@ country_event = {
         name = touhou_paragon_effect.40706.b
         set_country_flag = marisa_alice_regeneration_complete
         event_target:marisa_alice_regeneration_location = {
-            random_pop = {
+            random_owned_pop_group = {
                 kill_single_pop = yes
             }
         }
@@ -10059,7 +10673,7 @@ country_event = {
         name = touhou_paragon_effect.40707.b
         set_country_flag = marisa_alice_regeneration_complete
         event_target:marisa_alice_regeneration_location = {
-            random_pop = {
+            random_owned_pop_group = {
                 kill_single_pop = yes
             }
         }
@@ -10104,7 +10718,7 @@ country_event = {
                 owner = root
                 name = NAME_GOELIA
             }
-            set_planet_flag = goelia_defender_planet
+            set_carrier_flag = goelia_defender_planet
         }
         #country_event = { id = touhou_paragon_effect.40709 days = 5}
     }
@@ -10138,7 +10752,7 @@ country_event = {
             has_trait = thl_leader_trait_magic
         }
         fromfrom = {
-            has_planet_flag = goelia_defender_planet
+            has_carrier_flag = goelia_defender_planet
         }
     }
     option = {
@@ -10148,7 +10762,7 @@ country_event = {
         }
         event_target:marisa_alice_regeneration_location = {
             remove_modifier = modifier_deformed_mushroom
-            remove_planet_flag = goelia_defender_planet
+            remove_carrier_flag = goelia_defender_planet
         }
         country_event = { id = touhou_paragon_effect.40710}
     }
@@ -10228,7 +10842,7 @@ country_event = {
             has_trait = thl_leader_trait_magic
         }
         any_owned_planet = {
-            has_planet_flag = goelia_defender_planet
+            has_carrier_flag = goelia_defender_planet
         }
     }
     immediate = {
@@ -10238,6 +10852,16 @@ country_event = {
                     army_type = deformed_mushroom
                 }
                 remove_army = yes
+            }
+        }
+        if = {
+            limit = {
+                NOT = {
+                    has_country_flag = marisa_alice_regeneration_complete
+                }
+            }
+            country_event = {
+                id = touhou_paragon_effect.40709
             }
         }
     }
